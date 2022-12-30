@@ -1,8 +1,13 @@
 import express from 'express'
-import Product from '../model/Products.js'
+import Product from '../model/Product.js'
 
 const router = express.Router()
 
+/*
+    URL:http://localhost:8002/products/create
+    Method: POST
+    Fields:name, price, qty
+*/
 router.post('/create', async (req, resp) => {
     try {
         let new_product = {
@@ -30,6 +35,11 @@ router.post('/create', async (req, resp) => {
     }
 })
 
+/*
+    URL:http://localhost:8002/products/all
+    Method: GET
+    Fields:None
+*/
 router.get('/all', async (req, resp) => {
     try {
         let products = await Product.find()
@@ -40,6 +50,11 @@ router.get('/all', async (req, resp) => {
     }
 })
 
+/*
+    URL:http://localhost:8002/products/:id
+    Method: GET
+    Fields: id
+*/
 router.get('/:id', async (req, resp) => {
     let product_Id = req.params.id
     try {
@@ -51,6 +66,11 @@ router.get('/:id', async (req, resp) => {
     }
 })
 
+/*
+    URL:http://localhost:8002/products/:id
+    Method: DELETE
+    Fields: id
+*/
 router.delete('/delete/:id', async (req, resp)=>{
     try{
         let product_Id = req.params.id
@@ -63,6 +83,11 @@ router.delete('/delete/:id', async (req, resp)=>{
     }
 })
 
+/*
+    URL:http://localhost:8002/products/:id
+    Method: PUT
+    Fields: id
+*/
 router.put('/update/:id', async (req, resp)=>{
     let product_Id = req.params.id
     try{

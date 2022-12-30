@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import morgan from 'morgan'
 import cors from 'cors'
 import productRouter from './router/productRouter.js'
+import userRouter from './router/userRouter.js'
 import mongoose from 'mongoose'
 
 const app = express()
@@ -16,6 +17,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/products',productRouter)
+app.use('/users',userRouter)
 
 app.get('/',(req,resp)=>{
     resp.send("<h1>Express Product CRUD</h1>")
@@ -35,7 +37,9 @@ mongoose.connect(mongo_url,{
 })
 
 let port = process.env.PORT
-app.listen(port,()=>{
-    // console.log(`Server is running on http://localhost:${port}`);
+let host = process.env.HOST_NAME
+app.listen(port,host,(err)=>{
+    if(err) throw err
+    console.log(`Server is running on http://${host}:${port}`);
     console.log(`Server is running on http://localhost:${port}`);
 })
