@@ -16,6 +16,7 @@ app.use(cors())
 //to read form data
 app.use(express.json())
 
+//routers
 app.use('/products',productRouter)
 app.use('/users',userRouter)
 
