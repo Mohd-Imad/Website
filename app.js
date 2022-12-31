@@ -10,7 +10,7 @@ const app = express()
 
 dotenv.config({path:'./Config/.env'})
 
-app.use(morgan('common'))
+app.use(morgan('tiny'))
 app.use(cors())
 
 //to read form data
@@ -18,18 +18,18 @@ app.use(express.json())
 app.use(express.urlencoded({extended : false}))
 
 //routers
-app.use('/products',productRouter)
-app.use('/users',userRouter)
 
 app.get('/',(req,resp)=>{
     resp.send("<h1>Express Product CRUD</h1>")
 })
+app.use('/products',productRouter)
+app.use('/users',userRouter)
 
 let mongo_url = process.env.MONGO_URL
-mongoose.set('strictQuery', true)    
+mongoose.set('strictQuery', false)    
 mongoose.connect(mongo_url,{
-    useNewUrlParser : false,
-    useUnifiedTopology : false,
+    // useNewUrlParser : false,
+    // useUnifiedTopology : false,
 }).then((resp)=>{
     console.log("Mongo Cloud connected Successfully....!");
 })
