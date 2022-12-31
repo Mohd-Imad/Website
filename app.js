@@ -40,8 +40,8 @@ mongoose.connect(mongo_url,{
 
 let port = process.env.PORT
 let host = process.env.HOST_NAME
-app.listen(port,(err)=>{
+app.listen(8005,(err)=>{
     if(err) throw err
-    console.log(`Server is running on http://${host}:${port}`);
+    console.log(`Server is running on http://${host}:8005`);
     // console.log(`Server is running on http://localhost:${port}`);
 })
