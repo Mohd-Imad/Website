@@ -24,20 +24,6 @@ app.get('/',(req,resp)=>{
 })
 app.use('/products',productRouter)
 app.use('/users',userRouter)
-
-let mongo_url = process.env.MONGO_URL
-mongoose.set('strictQuery', false)    
-mongoose.connect(mongo_url,{
-    // useNewUrlParser : false,
-    // useUnifiedTopology : false,
-}).then((resp)=>{
-    console.log("Mongo Cloud connected Successfully....!");
-})
-.catch((err)=>{
-    console.log(err);
-    process.exit(1)
-})
-
 let port = process.env.PORT
 let host = process.env.HOST_NAME
 app.listen(port,host,(err)=>{
