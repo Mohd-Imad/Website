@@ -8,7 +8,7 @@ import mongoose from 'mongoose'
 
 const app = express()
 
-dotenv.config({path:'./Config/.env'})
+dotenv.config({path:'./Config/config.env'})
 
 app.use(morgan('tiny'))
 app.use(cors())
@@ -40,8 +40,8 @@ mongoose.connect(mongo_url,{
 
 let port = process.env.PORT
 let host = process.env.HOST_NAME
-app.listen(8005,(err)=>{
+app.listen(port,(err)=>{
     if(err) throw err
-    console.log(`Server is running on http://${host}:8005`);
+    console.log(`Server is running on http://${host}:${port}`);
     // console.log(`Server is running on http://localhost:${port}`);
 })
