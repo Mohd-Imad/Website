@@ -42,5 +42,5 @@ let host = process.env.HOST_NAME
 app.listen(port,host,(err)=>{
     if(err) throw err
     console.log(`Server is running on http://${host}:${port}`);
-    console.log(`Server is running on http://localhost:${port}`);
+    // console.log(`Server is running on http://localhost:${port}`);
 })
