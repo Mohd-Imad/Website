@@ -18,7 +18,7 @@ app.get('/',(req,resp)=>{
     resp.send("<h1>Express Product CRUD</h1>")
 })
 
-app.listen(port,hostname,()=>{
+app.listen(port,()=>{
     console.log(`Server is running on http://${hostname}:${port}`);
     // console.log(`Server is running on http://localhost:${port}`);
 })
