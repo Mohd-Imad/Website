@@ -4,7 +4,7 @@ import Product from '../model/Product.js'
 const router = express.Router()
 
 /*
-    URL:http://localhost:8002/products/create
+    URL:http://127.18.17.16:8005/products/create
     Method: POST
     Fields:name, price, qty
 */
@@ -36,7 +36,7 @@ router.post('/create', async (req, resp) => {
 })
 
 /*
-    URL:http://localhost:8002/products/all
+    URL:http://127.18.17.16:8005/products/all
     Method: GET
     Fields:None
 */
@@ -51,7 +51,7 @@ router.get('/all', async (req, resp) => {
 })
 
 /*
-    URL:http://localhost:8002/products/:id
+    URL:http://127.18.17.16:8005/products/:id
     Method: GET
     Fields: id
 */
@@ -67,7 +67,7 @@ router.get('/:id', async (req, resp) => {
 })
 
 /*
-    URL:http://localhost:8002/products/:id
+    URL:http://127.18.17.16:8005/products/:id
     Method: DELETE
     Fields: id
 */
@@ -84,7 +84,7 @@ router.delete('/delete/:id', async (req, resp)=>{
 })
 
 /*
-    URL:http://localhost:8002/products/:id
+    URL:http://127.18.17.16:8005/products/:id
     Method: PUT
     Fields: id
 */

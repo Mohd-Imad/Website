@@ -4,7 +4,7 @@ import User from '../model/User.js'
 const router = express.Router()
 
 /*
-    URL:http://127.10.99.88:8002/users/create
+    URL:http://127.18.17.16:8005/users/create
     Method: POST
     Fields:name, mobile, email, password, re_password
 */
@@ -38,7 +38,7 @@ router.post('/create', async (req, resp)=>{
 })
 
 /*
-    URL:http://127.10.99.88:8002/users/all
+    URL:http://127.18.17.16:8005/users/all
     Method: GET
     Fields:None
 */
@@ -53,7 +53,7 @@ router.get('/all', async (req, resp)=>{
 })
 
 /*
-    URL:http://127.10.99.88:8002/users/:id
+    URL:http://127.18.17.16:8005/users/:id
     Method: GET
     Fields:id
 */
@@ -74,7 +74,7 @@ router.get('/:id', async (req, resp)=>{
 })
 
 /*
-    URL:http://127.10.99.88:8002/users/del/:id
+    URL:http://127.18.17.16:8005/users/del/:id
     Method: DELETE
     Fields:id
 */
@@ -100,7 +100,7 @@ router.delete('/del/:id', async (req, resp)=>{
 })
 
 /*
-    URL:http://127.10.99.88:8002/users/update/:id
+    URL:http://127.18.17.16:8005/users/update/:id
     Method: PUT
     Fields:id
 */
