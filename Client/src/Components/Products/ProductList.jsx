@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Axios from 'axios'
 import Spinner from 'react-bootstrap/Spinner'
 
-const Products = () => {
+const ProductList = () => {
   let [products, setProducts] = useState([])
 
   let [loading, setLoading] = useState(null)
@@ -11,18 +11,18 @@ const Products = () => {
 
   useEffect(() => {
     setLoading(<><Spinner animation='border' variant='danger' /></>)     
-    Axios.get('http://localhost:3000/products').then((res) => {
+    Axios.get('https://filthy-ox-girdle.cyclic.app/products/all').then((res) => {
       setProducts(res.data)
     }).catch((err) => { 
-      setLoading(<h1>***No Products***</h1>)
+      setLoading(<h1 className='text-white'>***No Products***</h1>)
     })
   }, [])
 
   return (
     <>
-      <h1>Products</h1>
+      <h1 className='text-white'>Products</h1>
       <div className="container">
-        <pre>{JSON.stringify(products)}</pre>
+        <pre className='text-white'>{JSON.stringify(products)}</pre>
         <div className="row">
           {
             products.length > 0 ? <>
@@ -51,4 +51,4 @@ const Products = () => {
   )
 }
 
-export default Products
+export default ProductList

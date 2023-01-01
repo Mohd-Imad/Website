@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 import { Navigate, useParams } from 'react-router-dom'
 
-const Update = () => {
+const ProductUpdate = () => {
 
   let [selectedProduct, setSelectedProduct] = useState({
     name: "",
@@ -17,7 +17,7 @@ const Update = () => {
   let selectedId = useParams().id
 
   useEffect(()=>{
-    Axios.get(`http://localhost:3000/products/${selectedId}`)
+    Axios.get(`https://filthy-ox-girdle.cyclic.app/products/${selectedId}`)
     .then((response)=>{
       setSelectedProduct(response.data)
     })
@@ -49,7 +49,7 @@ const Update = () => {
 
   let updateHandler = (event) => {
     event.preventDefault()
-    let url = `http://localhost:3000/products/${selectedId}`
+    let url = `https://filthy-ox-girdle.cyclic.app/products/update/${selectedId}`
     Axios.put(url, selectedProduct).then((resp) => {
       setSubmitted(true)
       console.log(resp)
@@ -101,4 +101,4 @@ const Update = () => {
   )
 }
 
-export default Update
+export default ProductUpdate

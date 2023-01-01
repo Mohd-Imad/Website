@@ -5,7 +5,7 @@ import { Link, /* useNavigate */ } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
 
 
-const Admin = () => {
+const ProductAdmin = () => {
   let [products, setProducts] = useState([])
 
   // let navigate = useNavigate()
@@ -18,7 +18,7 @@ const Admin = () => {
   },[]) 
 
   let getAllProducts = ()=>{
-    Axios.get('http://localhost:3000/products').then((res)=>{
+    Axios.get('https://filthy-ox-girdle.cyclic.app/products/all').then((res)=>{
       setProducts(res.data)
     }).catch(()=>{
       setLoading(<h1 className='text-danger'>***No Products***</h1>)
@@ -26,7 +26,7 @@ const Admin = () => {
   }
 
   let deleteProduct = (id)=>{
-    Axios.delete(`http://localhost:3000/products/${id}`)
+    Axios.delete(`https://filthy-ox-girdle.cyclic.app/products/delete/${id}`)
     .then((res)=>{
       // navigate(0)
       getAllProducts()
@@ -36,9 +36,9 @@ const Admin = () => {
 
   return (
     <>
-      <h1>Admin</h1>
+      <h1 className='text-white'>ProductAdmin</h1>
       <div className="container">
-        <pre>{JSON.stringify(products)}</pre>
+        <pre className='text-white'>{JSON.stringify(products)}</pre>
         <div className="row">
           <div className="col-md-8">
             <table className="table table-hover">
@@ -80,4 +80,4 @@ const Admin = () => {
   )
 }
 
-export default Admin
+export default ProductAdmin

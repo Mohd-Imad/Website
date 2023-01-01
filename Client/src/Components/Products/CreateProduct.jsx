@@ -38,20 +38,19 @@ const CreateProduct = () => {
 
   let createHandler = (event) => {
     event.preventDefault()
-    let url = "http://localhost:3000/products"
+    let url = "https://filthy-ox-girdle.cyclic.app/products/create"
     Axios.post(url, product).then((resp) => {
       setSubmitted(true)
       console.log(resp)
     }).catch(() => { })
   }
-
   return (
     <>
-      <h1>CreateProduct</h1>
+      <h1 className='text-white'>CreateProduct</h1>
       <div className="container">
-        <pre>{JSON.stringify(product)}</pre>
+        <pre className='text-white'>{JSON.stringify(product)}</pre>
         {
-          submitted ? <><Navigate to='/products' /></> : <>
+          submitted ? <><Navigate to='/productlist' /></> : <>
             <div className="row">
               <div className="col-md-5">
                 <div id='card-create' className="card">
@@ -75,7 +74,7 @@ const CreateProduct = () => {
                       <div className="form-group">
                         <textarea name="info" cols="52" rows="3" placeholder='Description' className='form-control' onChange={productData}></textarea>
                       </div>
-                      <button id='btn-create' className="btn">Create Product</button>
+                      <button className='btn btn-dark'>Create Product</button>
                     </form>
                   </div>
                 </div>

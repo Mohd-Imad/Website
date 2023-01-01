@@ -1,11 +1,14 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import Admin from './Components/Products/Admin'
-import CreateProduct from './Components/Products/CreateProduct'
-import Products from './Components/Products/Products'
-import Update from './Components/Products/Update'
-import RegForm from './Components/Users/Form/Register/RegForm'
 import Navbar from './Navbar/Navbar'
+//Pages
+import Home from './Pages/HomePage/Home'
+import AboutUs from './Pages/AboutPage/AboutUs'
+import ProductsPage from './Pages/ProductPage/ProductsPage'
+//Components
+import CreateProduct from './Components/Products/CreateProduct'
+import ProductList from './Components/Products/ProductList'
+import ProductAdmin from './Components/Products/ProductAdmin'
 
 const App = () => {
   return (
@@ -13,11 +16,12 @@ const App = () => {
       <Router>
         <Navbar />
         <Routes>
+          <Route path='/home' element={<Home />} />
+          <Route path='/about' element={<AboutUs />} />
+          <Route path='/products' element={<ProductsPage />} />
           <Route path='/createproduct' element={<CreateProduct />} />
-          <Route path='/products' element={<Products />} />
-          <Route path='/admin' element={<Admin />} />
-          <Route path='/update/:id' element={<Update />} />
-          {/* <Route path='/register' element={<RegForm />} /> */}
+          <Route path='/listproduct' element={<ProductList />} />
+          <Route path='/adminproduct' element={<ProductAdmin />} />
         </Routes>
       </Router>
     </>

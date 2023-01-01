@@ -1,0 +1,11 @@
+Products
+
+POST - https://filthy-ox-girdle.cyclic.app/products/create
+
+GET all - https://filthy-ox-girdle.cyclic.app/products/all
+
+GET single - https://filthy-ox-girdle.cyclic.app/products/:id
+
+PUT - https://filthy-ox-girdle.cyclic.app/products/update/:id
+
+DELETE - https://filthy-ox-girdle.cyclic.app/products/delete/:id
