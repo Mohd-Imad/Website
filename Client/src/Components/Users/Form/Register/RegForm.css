@@ -1,0 +1,14 @@
+.row{
+   margin:5% 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.card-header{
+   text-align: center;
+   background-color: transpa
+}
+.reg-btn:disabled:hover{
+   margin-left: 300px;
+}
+

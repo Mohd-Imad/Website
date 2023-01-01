@@ -124,12 +124,12 @@ const RegForm = () => {
 
     return (
         <>
-            <div className="container mt-5">
+            <div className="container">
                 {/* <pre>{JSON.stringify(formValues, undefined, 2)}</pre> */}
                 <div className="row">
                     <div className="col-md-5">
                         <div className="card">
-                            <div className="card-header text-center bg-primary text-white">
+                            <div className="card-header">
                                 <h1>Registration Details</h1>
                             </div>
                             <div className="card-body">
