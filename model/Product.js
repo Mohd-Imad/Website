@@ -7,6 +7,10 @@ const schema = new ProductSchema({
         type : String,
         required : true
     },
+    image : {
+        type : String,
+        required : true
+    },
     price : {
         type : Number,
         required : true
@@ -14,6 +18,10 @@ const schema = new ProductSchema({
     qty : {
         type : Number,
         required : true
+    },
+    info : {
+        type : String,
+        required : false
     }
 })
 

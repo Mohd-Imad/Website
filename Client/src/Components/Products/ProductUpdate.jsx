@@ -58,11 +58,11 @@ const ProductUpdate = () => {
 
   return (
     <>
-      <h1>Update</h1>
+      <h1 className='text-white'>Update</h1>
       <div className="container">
-        <pre>{JSON.stringify(selectedProduct)}</pre>
+        <pre className='text-white'>{JSON.stringify(selectedProduct)}</pre>
         {
-          submitted ? <><Navigate to='/products' /></> : <>
+          submitted ? <><Navigate to='/listproduct' /></> : <>
             <div className="row">
               <div className="col-md-5">
                 <div className="card">

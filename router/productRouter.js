@@ -12,8 +12,10 @@ router.post('/create', async (req, resp) => {
     try {
         let new_product = {
             name: req.body.name,
+            image : req.body.image,
             price: req.body.price,
-            qty: req.body.qty
+            qty: req.body.qty,
+            info: req.body.info
         }
 
         let product = await Product.findOne({ name: new_product.name })
@@ -74,9 +76,9 @@ router.get('/:id', async (req, resp) => {
 router.delete('/delete/:id', async (req, resp)=>{
     try{
         let product_Id = req.params.id
-        let product = await Product.findByIdAndDelete(product_Id)
-        resp.status(200).json({result : "Product deleted successfully....!",product : product})
-        console.log(`Deleted Product : ${product}`);
+        let deletedProduct = await Product.findByIdAndDelete(product_Id)
+        resp.status(200).json({result : "Product deleted successfully....!",product : deletedProduct})
+        console.log(`Deleted Product : ${deletedProduct}`);
     }
     catch(err){
         resp.status(500).json({msg : "No Product found...!"})
@@ -92,9 +94,11 @@ router.put('/update/:id', async (req, resp)=>{
     let product_Id = req.params.id
     try{
         let updatedProduct = {
-            name : req.body.name,
-            price : req.body.price,
-            qty : req.body.qty
+                name: req.body.name,
+                image : req.body.image,
+                price: req.body.price,
+                qty: req.body.qty,
+                info: req.body.info
         }
 
         let product = await Product.findOne({ name: updatedProduct.name })

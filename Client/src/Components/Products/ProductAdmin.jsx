@@ -63,8 +63,8 @@ const ProductAdmin = () => {
                           <td>{product.price}</td>
                           <td>{product.qty}</td>
                           <td>
-                            <Link to={`/update/${product.id}`} className='btn btn-warning'>Edit <i className='fa fa-pen'></i></Link>&nbsp;
-                            <Link to='/admin' className='btn btn-danger'  onClick={deleteProduct.bind(this,product.id)}>Del <i className='fa fa-trash'></i></Link>
+                            <Link to={`/update/${product._id}`} className='btn btn-warning'>Edit <i className='fa fa-pen'></i></Link>&nbsp;
+                            <Link to='/adminproduct' className='btn btn-danger'  onClick={deleteProduct.bind(this,product._id)}>Del <i className='fa fa-trash'></i></Link>
                           </td>
                         </tr>
                       })
