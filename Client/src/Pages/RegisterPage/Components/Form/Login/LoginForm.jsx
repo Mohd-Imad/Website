@@ -2,33 +2,36 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import './LoginForm.css'
+import Axios from 'axios'
+import { Navigate } from 'react-router-dom'
 
 const LoginForm = () => {
-    
+
     const [details, setDetails] = useState({
-        email : "",
-        password : ""
+        email: "",
+        password: ""
     })
     const [emailErr, setEmailErr] = useState(null)
     const [passwordErr, setPasswordErr] = useState(null)
     const [valid, setValid] = useState(false)
+    const [submitted, setSubmitted] = useState(false)
 
-    useEffect(()=>{
-        if(valid===true){
+    useEffect(() => {
+        if (valid === true) {
             validateLoginForm()
         }
-    },[details])
+    }, [details])
 
-    const inputHandler = (event)=>{
-        setDetails({...details,[event.target.name] : event.target.value})
+    const inputHandler = (event) => {
+        setDetails({ ...details, [event.target.name]: event.target.value })
     }
 
-    const validateLoginForm = ()=>{
+    const validateLoginForm = () => {
         let email = details.email
         let password = details.password
 
         //Email Validation
-        if(email === ""){
+        if (email === "") {
             setEmailErr("Please enter Email ID")
         }
         else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i.test(email)) {
@@ -38,8 +41,8 @@ const LoginForm = () => {
             setEmailErr("")
         }
 
-         //Password validation
-         if (password === "") {
+        //Password validation
+        if (password === "") {
             setPasswordErr("Please enter your Password")
         }
         else if (password.length < 6 || password.length > 15) {
@@ -58,25 +61,30 @@ const LoginForm = () => {
             setPasswordErr("")
         }
 
-        if(emailErr === "" && passwordErr === ""){
+        if (emailErr === "" && passwordErr === "") {
             return true
         }
     }
 
-    const submitHandler = (e)=>{
+    const submitHandler = (e) => {
         e.preventDefault()
         setValid(true)
         let login = validateLoginForm()
-        if(login === true){
+        if (login === true) {
             alert("Login Successful...!")
+            let url = `https://filthy-ox-girdle.cyclic.app/users/login`
+            Axios.post(url, details).then((resp) => { }).catch((err) => { })
+            setSubmitted(true)
         }
     }
 
     return <>
         <div className="container mt-5">
-        <pre>{JSON.stringify(details)}</pre>
+            <pre>{JSON.stringify(details)}</pre>
             <div className="row">
                 <div className="col-md-4">
+                    {
+                        submitted ? <><Navigate to='/adminproduct'/></> : <>
                     <div className="card mt-5">
                         <div className="card-header bg-primary text-white">
                             <h1>Login Details</h1>
@@ -88,16 +96,19 @@ const LoginForm = () => {
                                     <p className='text-danger'>{emailErr}</p>
                                 </div>
                                 <div className="form-group">
-                                    <input type="text" name='password' className="form-control" placeholder='Password'  onChange={inputHandler} />
+                                    <input type="text" name='password' className="form-control" placeholder='Password' onChange={inputHandler} />
                                     <p className='text-danger'>{passwordErr}</p>
                                 </div>
                                 <input type="submit" value="Login" className='btn btn-warning login-btn' />
                             </form>
                         </div>
                     </div>
-                </div>
+                </>
+                    }
+
             </div>
         </div>
+    </div>
     </>
 }
 

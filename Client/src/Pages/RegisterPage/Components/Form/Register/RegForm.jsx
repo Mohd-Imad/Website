@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import './RegForm.css'
 import Axios from 'axios'
+import { Navigate } from 'react-router-dom'
 
 const RegForm = () => {
 
@@ -18,10 +19,10 @@ const RegForm = () => {
     const [passwordErr, setPasswordErr] = useState(null)
     const [rePasswordErr, setRePasswordErr] = useState(null)
     const [valid, setValid] = useState(false)
-
+    const [submitted, setSubmitted] = useState(false)
 
     const changeInputHandler = (event) => {
-        setFormValues({...formValues, [event.target.name]: event.target.value})
+        setFormValues({ ...formValues, [event.target.name]: event.target.value })
     }
 
     useEffect(() => {
@@ -41,7 +42,7 @@ const RegForm = () => {
         if (name === "") {
             setNameErr("Please enter Name")
         }
-        else if (name.length < 4 || name.length > 10) {
+        else if (name.length < 4 || name.length > 15) {
             setNameErr("Name must be of min 4 and max 10 characters")
         }
         else {
@@ -110,7 +111,6 @@ const RegForm = () => {
         if (nameErr === "" && mobileErr === "" && emailErr === "" && passwordErr === "" && rePasswordErr === "") {
             return true
         }
-
     }
 
     const submitFormHandler = (event) => {
@@ -120,8 +120,9 @@ const RegForm = () => {
         if (submit === true) {
             alert("Form submitted successfully")
             let url = `https://filthy-ox-girdle.cyclic.app/users/create`
-            Axios.post(url, formValues)
+            Axios.post(url, formValues).then((resp)=>{}).catch((err)=>{})
             console.log(formValues)
+            setSubmitted(true)
         }
     }
 
@@ -131,42 +132,48 @@ const RegForm = () => {
                 {/* <pre>{JSON.stringify(formValues, undefined, 2)}</pre> */}
                 <div className="row">
                     <div className="col-md-5">
-                        <div className="card">
-                            <div className="card-header">
-                                <h1>Registration Details</h1>
-                            </div>
-                            <div className="card-body">
-                                <form onSubmit={submitFormHandler}>
-                                    <div className="form-group">
-                                        <input type="text" name='name' placeholder="Name" className='form-control' onChange={changeInputHandler} />
-                                        <p className='text-danger'>{nameErr}</p>
+                        {
+                            submitted ? <><Navigate to='/login' /></> :
+                                <>
+                                    <div className="card">
+                                        <div className="card-header">
+                                            <h1>Registration Details</h1>
+                                        </div>
+                                        <div className="card-body">
+                                            <form onSubmit={submitFormHandler}>
+                                                <div className="form-group">
+                                                    <input type="text" name='name' placeholder="Name" className='form-control' onChange={changeInputHandler} />
+                                                    <p className='text-danger'>{nameErr}</p>
+                                                </div>
+                                                <div className="form-group">
+                                                    <input type="number" name='mobile' placeholder="Mobile" className='form-control' onChange={changeInputHandler} />
+                                                    <p className='text-danger'>{mobileErr}</p>
+                                                </div>
+                                                <div className="form-group">
+                                                    <input type="text" name='email' placeholder="Email" className='form-control' onChange={changeInputHandler} />
+                                                    <p className='text-danger'>{emailErr}</p>
+                                                </div>
+                                                <div className="form-group">
+                                                    <input type="password" name='password' placeholder="Password" className='form-control' onChange={changeInputHandler} />
+                                                    <p className='text-danger'>{passwordErr}</p>
+                                                </div>
+                                                <div className="form-group">
+                                                    <input type="password" name='re_password' placeholder="Confirm Password" className='form-control' onChange={changeInputHandler} />
+                                                    <p className='text-danger'>{rePasswordErr}</p>
+                                                </div>
+                                                {
+                                                    (nameErr || mobileErr || emailErr || passwordErr || rePasswordErr) ? <>
+                                                        <input type="submit" value="Register" className='btn btn-warning reg-btn' disabled />
+                                                    </> : <>
+                                                        <input type="submit" value="Register" className='btn btn-warning reg-btn' />
+                                                    </>
+                                                }
+                                            </form>
+                                        </div>
                                     </div>
-                                    <div className="form-group">
-                                        <input type="number" name='mobile' placeholder="Mobile" className='form-control' onChange={changeInputHandler} />
-                                        <p className='text-danger'>{mobileErr}</p>
-                                    </div>
-                                    <div className="form-group">
-                                        <input type="text" name='email' placeholder="Email" className='form-control' onChange={changeInputHandler} />
-                                        <p className='text-danger'>{emailErr}</p>
-                                    </div>
-                                    <div className="form-group">
-                                        <input type="password" name='password' placeholder="Password" className='form-control' onChange={changeInputHandler} />
-                                        <p className='text-danger'>{passwordErr}</p>
-                                    </div>
-                                    <div className="form-group">
-                                        <input type="password" name='re_password' placeholder="Confirm Password" className='form-control' onChange={changeInputHandler} />
-                                        <p className='text-danger'>{rePasswordErr}</p>
-                                    </div>
-                                    {
-                                        (nameErr || mobileErr || emailErr || passwordErr || rePasswordErr) ? <>
-                                            <input type="submit" value="Register" className='btn btn-warning reg-btn' disabled />
-                                        </> : <>
-                                            <input type="submit" value="Register" className='btn btn-warning reg-btn' />
-                                        </>
-                                    }
-                                </form>
-                            </div>
-                        </div>
+                                </>
+                        }
+
                     </div>
                 </div>
             </div>
