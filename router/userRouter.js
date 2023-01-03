@@ -1,4 +1,5 @@
 import express from 'express'
+import bcrypt from 'bcrypt'
 import User from '../model/User.js'
 
 const router = express.Router()
@@ -18,12 +19,16 @@ router.post('/create', async (req, resp)=>{
             re_password : req.body.re_password,
         }
 
+        let salt = bcrypt.genSaltSync(10)
+        let password = bcrypt.hashSync(password,salt)
+
+
         let user = await User.findOne({email : newUser.email})
             if(user){
                 return resp.status(401).json({msg : "User already exists...!"})
             }
 
-        user = await User(newUser)
+        user = await User(...newUser,password)
         console.log(user);
         
         user = await user.save()

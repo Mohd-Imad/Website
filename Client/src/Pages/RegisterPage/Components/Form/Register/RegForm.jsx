@@ -157,7 +157,6 @@ const RegForm = () => {
                                         <input type="password" name='re_password' placeholder="Confirm Password" className='form-control' onChange={changeInputHandler} />
                                         <p className='text-danger'>{rePasswordErr}</p>
                                     </div>
-
                                     {
                                         (nameErr || mobileErr || emailErr || passwordErr || rePasswordErr) ? <>
                                             <input type="submit" value="Register" className='btn btn-warning reg-btn' disabled />
