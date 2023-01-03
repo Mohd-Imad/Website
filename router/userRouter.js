@@ -29,7 +29,7 @@ router.post('/create', async (req, resp)=>{
                 return resp.status(401).json({msg : "User already exists...!"})
             }
 
-        user = await User(...user,password)
+        user = await User(...newUser,password)
         console.log(user);
         
         user = await user.save()
