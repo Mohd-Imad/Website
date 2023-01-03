@@ -19,6 +19,7 @@ router.post('/create', async (req, resp)=>{
             re_password : req.body.re_password,
         }
 
+        //converting password to hashed format
         let salt = bcrypt.genSaltSync(10)
         let password = bcrypt.hashSync(newUser.password,salt)
         console.log(password);
@@ -159,7 +160,14 @@ router.post('/login', async (req, resp)=>{
             resp.status(200).json({result : "User with this email doen not exist...!"})
         }
         console.log(existUser.password);
-        
+        let isMatch = await bcrypt.compare(loginUser.password,existUser.password)
+        console.log(isMatch);
+
+        if(!isMatch){
+            resp.status(401).json({
+                msg : "User credentials - Password not match"
+            })
+        }
     }
     catch(err){
 
