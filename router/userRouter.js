@@ -129,7 +129,7 @@ router.put('/update/:id', async (req, resp)=>{
          if(!user){
             resp.status(401).json({msg :"User not found...!"})
          }
-         user = await User.findByIdAndUpdate(userID, {$set : updatedUser}, {new : true})
+         user = await User.findByIdAndUpdate(userID, {$set : updatedUser})
          resp.status(200).json({
             result : "User details updated successfully...!",
             user : user
@@ -141,13 +141,6 @@ router.put('/update/:id', async (req, resp)=>{
     }
 })
 
-// router.post('/login', async (req,resp)=>{
-//     try{
-//         let 
-//     }
-//     catch(err){
 
-//     }
-// })
 
 export default router
