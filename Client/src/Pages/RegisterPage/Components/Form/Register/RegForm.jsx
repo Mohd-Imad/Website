@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import './RegForm.css'
+import Axios from 'axios'
 
 const RegForm = () => {
 
@@ -118,6 +119,8 @@ const RegForm = () => {
         let submit = validateForm()
         if (submit === true) {
             alert("Form submitted successfully")
+            let url = `https://filthy-ox-girdle.cyclic.app/users/create`
+            Axios.post(url, formValues)
             console.log(formValues)
         }
     }
