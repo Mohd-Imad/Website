@@ -129,7 +129,7 @@ router.put('/update/:id', async (req, resp)=>{
          if(!user){
             resp.status(401).json({msg :"User not found...!"})
          }
-         user = await User.findByIdAndUpdate(userID, {$set : updatedUser},{new:true})
+         user = await User.findByIdAndUpdate(userID, {$set : updatedUser})
          resp.status(200).json({
             result : "User details updated successfully...!",
             user : user
@@ -141,6 +141,29 @@ router.put('/update/:id', async (req, resp)=>{
     }
 })
 
+/*
+    URL:http://127.18.17.16:8005/users/login
+    Method: POST
+    Fields:email, password
+*/
+router.post('/login', async (req, resp)=>{
+    try{
+        let loginUser = {
+            email : req.body.email,
+            password : req.body.password
+        }
 
+        //checking existence of user
+        let existUser = await User.findOne({email : loginUser.email})
+        if(!existUser){
+            resp.status(200).json({result : "User with this email doen not exist...!"})
+        }
+        console.log(existUser.password);
+        
+    }
+    catch(err){
+
+    }
+})
 
 export default router
