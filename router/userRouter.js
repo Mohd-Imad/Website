@@ -168,6 +168,9 @@ router.post('/login', async (req, resp)=>{
                 msg : "User credentials - Password not match"
             })
         }
+        else if(isMatch){
+            resp.status(200).json({result : "Login Success........!"})
+        }
     }
     catch(err){
 
