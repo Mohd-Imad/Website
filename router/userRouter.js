@@ -20,9 +20,9 @@ router.post('/create', async (req, resp)=>{
         }
 
         let salt = bcrypt.genSaltSync(10)
-        let password = bcrypt.hashSync(password,salt)
-
-
+        let password = bcrypt.hashSync(newUser.password,salt)
+        console.log(password);
+        
         let user = await User.findOne({email : newUser.email})
             if(user){
                 return resp.status(401).json({msg : "User already exists...!"})
@@ -129,13 +129,21 @@ router.put('/update/:id', async (req, resp)=>{
          if(!user){
             resp.status(401).json({msg :"User not found...!"})
          }
-         user = await User.findByIdAndUpdate(userID, {$set : updatedUser})
+         user = await User.findByIdAndUpdate(userID, {$set : updatedUser}, { new: true })
          resp.status(200).json({
             result : "User details updated successfully...!",
             user : user
          })
          console.log(`Updated User : ${user}`);
-         
+    }
+    catch(err){
+        resp.status(501).json({msg : 'Server issue...!'})
+    }
+})
+
+router.post('/login', async (req,resp)=>{
+    try{
+        let 
     }
     catch(err){
 
