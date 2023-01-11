@@ -19,27 +19,28 @@ router.post('/create', async (req, resp)=>{
             re_password : req.body.re_password,
         }
 
+        
+        let user = await User.findOne({email : newUser.email})
+            if(user){
+                return resp.status(401).json({msg : "User already exists...!"})
+            }
+
         //converting password to hashed format
         let salt = bcrypt.genSaltSync(10)
-        let password = bcrypt.hashSync(newUser.password,salt)
-        console.log(password);
-        
-        // let user = await User.findOne({email : newUser.email})
-        //     if(user){
-        //         return resp.status(401).json({msg : "User already exists...!"})
-        //     }
+        let new_password = bcrypt.hashSync(newUser.password,salt)
+        console.log(new_password);
 
-        let user = await User(...newUser,password)
-        console.log(user);
+        let create_user = await User({...newUser,new_password})
+        console.log(create_user);
         
-        user = await user.save()
+        let saved_user = await create_user.save()
         resp.status(200).json({
             result : "User created successfully...!",
-            user : user
+            user : saved_user
         })
     }
     catch(err){
-       return resp.status(501).json({msg:"Server issue...!"})
+       if(err) throw err
     }
 })
 
