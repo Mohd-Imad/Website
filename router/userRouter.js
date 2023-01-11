@@ -24,12 +24,12 @@ router.post('/create', async (req, resp)=>{
         let password = bcrypt.hashSync(newUser.password,salt)
         console.log(password);
         
-        let user = await User.findOne({email : newUser.email})
-            if(user){
-                return resp.status(401).json({msg : "User already exists...!"})
-            }
+        // let user = await User.findOne({email : newUser.email})
+        //     if(user){
+        //         return resp.status(401).json({msg : "User already exists...!"})
+        //     }
 
-        user = await User(...newUser,password)
+        let user = await User(...newUser,password)
         console.log(user);
         
         user = await user.save()

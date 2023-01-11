@@ -117,19 +117,21 @@ const RegForm = () => {
         event.preventDefault()
         setValid(true)
         let submit = validateForm()
+        // console.log(submit)
         if (submit === true) {
             alert("Form submitted successfully")
-            let url = `https://filthy-ox-girdle.cyclic.app/users/create`
-            Axios.post(url, formValues).then((resp)=>{}).catch((err)=>{})
-            console.log(formValues)
-            setSubmitted(true)
+            let url = 'https://filthy-ox-girdle.cyclic.app/users/create'
+            Axios.post(url,formValues).then((resp)=>{
+                setSubmitted(true)
+            }).catch((err)=>{console.log(err)})
+            // console.log(formValues)
         }
     }
 
     return (
         <>
             <div className="container">
-                {/* <pre>{JSON.stringify(formValues, undefined, 2)}</pre> */}
+                {/* <pre>{JSON.stringify(su)}</pre> */}
                 <div className="row">
                     <div className="col-md-5">
                         {
