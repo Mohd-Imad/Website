@@ -21,7 +21,7 @@ const App = () => {
         <Navbar />
         <Routes>
           {/* Pages */}
-          <Route path='/home' element={<Home />} />
+          <Route path='/' element={<Home />} />
           <Route path='/about' element={<AboutUs />} />
           <Route path='/products' element={<ProductsPage />} />
           <Route path='/register' element={<RegisterPage />} />
@@ -31,7 +31,6 @@ const App = () => {
           <Route path='/adminproduct' element={<ProductAdmin />} />
           <Route path='/update/:id' element={<ProductUpdate />} />
           <Route path='/login' element={<LoginForm />} />
-
         </Routes>
       </Router>
     </>
