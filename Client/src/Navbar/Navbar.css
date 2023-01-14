@@ -25,8 +25,9 @@
 .brand {
     
     font-size: 2rem;
-    border: 2px solid aliceblue;
+    /* border: 2px solid aliceblue; */
     padding: 10px;
+    position: absolute;
 }
 
 .navbar-ul {

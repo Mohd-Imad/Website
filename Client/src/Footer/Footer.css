@@ -1,6 +1,7 @@
 .footer-bg{
     background-color: #000000;
      color: antiquewhite;
+     width: 100%;
 }
 .footer{
  display: flex;
@@ -10,28 +11,30 @@
  padding-top: 5%;
  padding-bottom: 3%;
  width: 80%;
- 
 }
-.footerOne{
+.footerHeader{
+    color: #6a6b6a;
+}
+.col-one{
     width: 40%;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
 }
-.footerTwo{
+.col-two{
     width: 15%;
     padding-left: 30px;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
 }
-.footerThree{
+.col-three{
     width: 15%;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
 }
-.footerFour{
+.col-four{
     width: 30%;
     display: flex;
     flex-direction: column;
@@ -42,13 +45,23 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    font-size: 15px;
 }
 .footerBody .footerLink{
     text-decoration: none;
 }
-.copyRight{
-    border-top: 1px solid white;
-    background-color: black;
-    padding: 1% 10%;
-    color: #7a755c;
+.icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fb-icon, .li-icon{
+    border: 1px solid #fff;
+    padding: 15px;
+    margin-right: 10px;
+}
+.fb-icon:hover, .li-icon:hover{
+    border: 1px solid #000;
+    background-color: white;
+    color: #000 ;
 }

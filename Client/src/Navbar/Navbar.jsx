@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './Navbar.css'
 import Dropdown from './Dropdown/Dropdown'
 import menuItems from './Dropdown/menuItems'
-
+import MI from '../assets/mi-test.jpg'
 
 const Navbar = () => {
 
@@ -45,7 +45,7 @@ const Navbar = () => {
   return <>
     <nav className={scrolled ? "navBar scrolled" : "navBar"}>
   
-      <Link to='/' className='brand'>MI Mart</Link>
+      <Link to='/' className='brand'><img src={MI} height='80px' alt="MI-Mart" /></Link>
       <ul className="navbar-ul">
         <li className="navList"><Link to='/' className="navLink">Home</Link></li>
         <li className="navList"><Link to='/about' className="navLink">About Us</Link></li>
