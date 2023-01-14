@@ -9,6 +9,7 @@ const Home = () => {
         <h1 className="mart-name">MI Mart</h1>
         </div>
       </div>
+
     </>
   )
 }
