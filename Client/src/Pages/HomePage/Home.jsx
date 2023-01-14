@@ -5,7 +5,9 @@ const Home = () => {
   return (
     <>
       <div className="homepage">
-        <h1 style={{ color: 'aliceblue' }}>HomePage</h1>
+        <div className="home-container">
+        <h1 className="mart-name">MI Mart</h1>
+        </div>
       </div>
     </>
   )

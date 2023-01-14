@@ -1,17 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Roboto:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Seaweed+Script&display=swap');
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Kanit',sans-serif;
+
 }
 
 body{
-    background-color: #333;
+    background-image: url('./assets/mart.png');
+    background-repeat: no-repeat;
     min-height: 100vh;
     max-height: 100%;
-    background-size: cover;
+    background-size:cover;
+}
+#root{
+    background-color: hsla(0, 0%, 0%, 0.7); 
 }
 

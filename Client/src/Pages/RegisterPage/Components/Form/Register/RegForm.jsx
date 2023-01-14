@@ -138,7 +138,7 @@ const RegForm = () => {
                             submitted ? <><Navigate to='/login' /></> :
                                 <>
                                     <div className="card">
-                                        <div className="card-header">
+                                        <div className="card-header text-dark">
                                             <h1>Registration Details</h1>
                                         </div>
                                         <div className="card-body">

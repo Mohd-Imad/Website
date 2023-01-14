@@ -1,18 +1,19 @@
-.productpage {
+.registerpage {
     height: 100vh;
     width: 100%;
 }
 
-.product-container {
+.register-container {
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: aliceblue;
-    font-family: 'Montserrat',sans-serif;
+
 }
-.product-heading{
+.mart-name{
     margin: 0;
-    font-size: 5rem;
+    font-size: 7rem;
+    font-family: 'Montserrat',sans-serif;
 }

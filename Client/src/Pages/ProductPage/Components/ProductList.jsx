@@ -20,9 +20,8 @@ const ProductList = () => {
 
   return (
     <>
-      <h1 className='text-white'>Products</h1>
       <div className="container">
-        <pre className='text-white'>{JSON.stringify(products)}</pre>
+        {/* <pre className='text-white'>{JSON.stringify(products)}</pre> */}
         <div className="row">
           {
             products.length > 0 ? <>
@@ -30,11 +29,11 @@ const ProductList = () => {
                 products.map((product) => {
                   return <div className="col-md-3">
                     <div className="card mt-5">
-                      <div className="card-header bg-info">
+                      <div className="card-header bg-primary">
                         <center>
                           <img src={product.image} height='150px' alt="No pic" /></center>
                       </div>
-                      <div className="card-body">
+                      <div className="card-body text-dark">
                         <li className="list-group-item">Name : {product.name}</li>
                         <li className="list-group-item">Price : {product.price}</li>
                         <li className="list-group-item">QTY : {product.qty}</li>

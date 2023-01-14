@@ -1,0 +1,19 @@
+.homepage {
+    height: 100vh;
+    width: 100%;
+}
+
+.home-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: aliceblue;
+
+}
+.mart-name{
+    margin: 0;
+    font-size: 7rem;
+    font-family: 'Montserrat',sans-serif;
+}

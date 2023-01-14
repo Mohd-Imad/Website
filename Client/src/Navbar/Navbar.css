@@ -1,26 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Roboto:wght@300&display=swap');
 
 .navBar{
-    height: 80px;
-    border: 3px solid #000;
-    box-shadow: 10px 10px 20px black;
+    background: transparent;
+    height: 10vh;
+    width: 100%;
+    border-bottom: 0.5px solid rgb(179, 175, 175);
+    box-shadow: 10px 10px 20px rgb(0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: sticky;
     padding: 1rem;
+    position: absolute;
 }
 .brand{
     color: aliceblue;
     font-size: 2rem;
     border: 2px solid aliceblue;
-    padding: 12px;
+    padding: 10px;
 }
 .navbar-ul{
     list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 10vh;
+}
+.navList{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 .navLink{
     margin-inline: 25px;

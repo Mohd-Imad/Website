@@ -6,7 +6,7 @@ import './Navbar.css'
 const Navbar = () => {
   return <>
     <nav className="navBar">
-      <Link to='/' className='brand'>Logo</Link>
+      <Link to='/' className='brand'>MI Mart</Link>
         <ul className="navbar-ul">
           <li className="navList"><Link to='/' className="navLink">Home</Link></li>
           <li className="navList"><Link to='/about' className="navLink">About Us</Link></li>

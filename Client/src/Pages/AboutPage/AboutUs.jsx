@@ -1,9 +1,15 @@
 import React from 'react'
+import './AboutUs.css'
 
 const AboutUs = () => {
   return (
     <>
-      <h1 style={{color:'aliceblue'}}>About Us Page</h1>
+      <div className="aboutpage">
+        <div className="about-container">
+          <h1 className='about-heading'>About Us</h1>
+          <p className="about-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque quisquam ullam, libero dignissimos ipsam amet inventore consequuntur fugit id magnam ea porro.</p>
+        </div>
+      </div>
     </>
   )
 }
