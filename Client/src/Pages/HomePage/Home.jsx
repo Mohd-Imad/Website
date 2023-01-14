@@ -1,4 +1,5 @@
 import React from 'react'
+import ProductList from '../ProductPage/Components/Product List/ProductList'
 import './Home.css'
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
         <h1 className="mart-name">MI Mart</h1>
         </div>
       </div>
+      <ProductList />
     </>
   )
 }

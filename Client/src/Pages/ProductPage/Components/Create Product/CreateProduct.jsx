@@ -46,9 +46,8 @@ const CreateProduct = () => {
   }
   return (
     <>
-      <h1 className='text-white'>CreateProduct</h1>
-      <div className="container">
-        <pre className='text-white'>{JSON.stringify(product)}</pre>
+      <div className="container mt-mi">
+        {/* <pre className='text-white'>{JSON.stringify(product)}</pre> */}
         {
           submitted ? <><Navigate to='/listproduct' /></> : <>
             <div className="row">

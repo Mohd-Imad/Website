@@ -58,9 +58,8 @@ const ProductUpdate = () => {
 
   return (
     <>
-      <h1 className='text-white'>Update</h1>
-      <div className="container">
-        <pre className='text-white'>{JSON.stringify(selectedProduct)}</pre>
+      <div className="container mt-mi">
+        {/* <pre className='text-white'>{JSON.stringify(selectedProduct)}</pre> */}
         {
           submitted ? <><Navigate to='/listproduct' /></> : <>
             <div className="row">

@@ -36,12 +36,12 @@ const ProductAdmin = () => {
 
   return (
     <>
-      <h1 className='text-white'>ProductAdmin</h1>
+      <h1 className='text-white text-center mt-mi' >ProductAdmin</h1>
       <div className="container">
-        <pre className='text-white'>{JSON.stringify(products)}</pre>
+        {/* <pre className='text-white'>{JSON.stringify(products)}</pre> */}
         <div className="row">
-          <div className="col-md-8">
-            <table className="table table-hover">
+          <div className="col-md">
+            <table className="table table-light table-hover">
               <thead className="bg-dark text-white">
                 <tr>
                   {/* <th>ID</th> */}

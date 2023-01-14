@@ -10,16 +10,17 @@ const ProductList = () => {
 
 
   useEffect(() => {
-    setLoading(<><Spinner animation='border' variant='danger' /></>)     
+    setLoading(<><Spinner animation='border' variant='danger' /></>)
     Axios.get('https://filthy-ox-girdle.cyclic.app/products/all').then((res) => {
       setProducts(res.data)
-    }).catch((err) => { 
+    }).catch((err) => {
       setLoading(<h1 className='text-white'>***No Products***</h1>)
     })
   }, [])
 
   return (
     <>
+      <h1 className="text-white text-center mt-mi">Products</h1>
       <div className="container">
         {/* <pre className='text-white'>{JSON.stringify(products)}</pre> */}
         <div className="row">

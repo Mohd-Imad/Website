@@ -79,8 +79,8 @@ const LoginForm = () => {
     }
 
     return <>
-        <div className="container mt-5">
-            <pre>{JSON.stringify(details)}</pre>
+        <div className="container mt-mi">
+            {/* <pre>{JSON.stringify(details)}</pre> */}
             <div className="row">
                 <div className="col-md-4">
                     {

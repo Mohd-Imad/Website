@@ -130,7 +130,7 @@ const RegForm = () => {
 
     return (
         <>
-            <div className="container">
+            <div className="container mt-mi">
                 {/* <pre>{JSON.stringify(su)}</pre> */}
                 <div className="row">
                     <div className="col-md-5">
@@ -139,7 +139,7 @@ const RegForm = () => {
                                 <>
                                     <div className="card">
                                         <div className="card-header text-dark">
-                                            <h1>Registration Details</h1>
+                                            <h1 className='bg-info'>Registration Details</h1>
                                         </div>
                                         <div className="card-body">
                                             <form onSubmit={submitFormHandler}>

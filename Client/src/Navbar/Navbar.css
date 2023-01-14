@@ -9,10 +9,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
+    position: fixed;
     top: 0;
     transition: 1s;
-    padding: 0 1rem;
+    padding-left:1rem;
+    z-index: 4;
 }
 
 .scrolled{

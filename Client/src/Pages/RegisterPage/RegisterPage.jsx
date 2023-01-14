@@ -7,7 +7,6 @@ const RegisterPage = () => {
     <>
      <div className="registerpage">
       <div className="register-container">
-        <h1 className="register-heading">Register</h1>
         <RegForm />
       </div>
      </div>
