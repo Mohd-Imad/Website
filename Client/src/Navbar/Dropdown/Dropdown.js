@@ -5,11 +5,15 @@ import { Link } from 'react-router-dom'
 
 let Dropdown = (props) => {
   let dropdown = props.dropdown
+  let [scrolled,setScrolled] = useState(props.scrolled)
+  // console.log(scrolled);
+  
   // console.log(dropdown)
   const [click, setClick] = useState(false)
+
   const handleClick = () => setClick(!click)
   return <>
-    <ul onClick={handleClick} className={click ? 'dropdown-menu clicked' : 'dropdown-menu'}>
+    <ul onClick={handleClick} className={click ? 'dropdown-menu1 clicked' : scrolled?'dropdown-menu1 dropScrolled':'dropdown-menu1'}>
 
       {dropdown.map((item, index) => {
         return <li key={index}>

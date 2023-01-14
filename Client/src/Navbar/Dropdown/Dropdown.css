@@ -1,20 +1,22 @@
-.dropdown-menu{
-    width: 180px;
+.dropdown-menu1{
+    width: 150px;
     position: absolute;
-    z-index: 2;
-    top: 80px;
+    z-index: 4;
+    top: 107px;
     list-style: none;
     text-align: start;
 }
-
-.dropdown-menu li {
+.dropScrolled{
+    top:72px
+}
+.dropdown-menu1 li {
     background-color: #1888ff;
     cursor: pointer;
 }
-.dropdown-menu li:hover{
+.dropdown-menu1 li:hover{
     background-color: #090909;
 }
-.dropdown-menu.clicked{
+.dropdown-menu1.clicked{
     display: none;
 }
 .dropdown-item{
@@ -26,6 +28,7 @@
     padding: 16px;
 }
 .dropdown-item:hover{
+    background-color: #000;
     color: #fff;
     text-decoration: none ;
 }

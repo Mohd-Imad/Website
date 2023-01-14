@@ -1,4 +1,4 @@
-const DropdownItems = {
+const menuItems = {
     product : [
         {
             title: 'Create Product',
@@ -25,4 +25,4 @@ const DropdownItems = {
     ]
 }
 
-export {DropdownItems}
+export default menuItems

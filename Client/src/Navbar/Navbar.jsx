@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 import Dropdown from './Dropdown/Dropdown'
-import {DropdownItems} from './Dropdown/DropdownItems'
+import menuItems from './Dropdown/menuItems'
 
 
 const Navbar = () => {
@@ -25,12 +25,15 @@ const Navbar = () => {
   
 
   const displayDropdown = (listName) => {
-    if (listName === "product" && window.innerWidth > 960) {
+    // console.log(listName)
+    if (listName === "product"&& !window.innerWidth<960) {
       setProductDropdown(true)
+      console.log('product hover')
       setUserDropdown(false)
     }
-    else if (listName === "user" && window.innerWidth > 960) {
+    else if (listName === "user"&& !window.innerWidth<960) {
       setUserDropdown(true)
+      console.log('user hover')
       setProductDropdown(false)
     }
   }
@@ -46,15 +49,16 @@ const Navbar = () => {
       <ul className="navbar-ul">
         <li className="navList"><Link to='/' className="navLink">Home</Link></li>
         <li className="navList"><Link to='/about' className="navLink">About Us</Link></li>
-        <li className="navList" onMouseOver={displayDropdown.bind(this,'product')} onMouseLeave={hideDropdown}>
-          <Link to='/products' className="navLink">Products</Link>
-          {productDropdown ? <Dropdown dropdown={DropdownItems.product} /> : null}
+        <li className="navList" onMouseOver={displayDropdown.bind(this,"product")} onMouseLeave={hideDropdown}>
+          <Link to='/products' className="navLink">Products </Link>
+          {productDropdown ? <Dropdown dropdown={menuItems.product} scrolled={scrolled} /> : null}
         </li>
-        <li className="navList" onMouseOver={displayDropdown.bind(this,'user')} onMouseLeave={hideDropdown}>
+        <li className="navList" onMouseOver={displayDropdown.bind(this,"user")} onMouseLeave={hideDropdown}>
           <Link to='/register' className="navLink">Register/Login</Link>
-          {userDropdown ? <Dropdown dropdown={DropdownItems.user} /> : null}
+          {userDropdown ? <Dropdown dropdown={menuItems.user} scrolled={scrolled} /> : null}
         </li>
       </ul>
+      {/* <pre>{JSON.stringify(scrolled)}</pre> */}
     </nav>
   </>
 }
