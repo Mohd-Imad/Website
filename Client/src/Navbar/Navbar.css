@@ -23,7 +23,6 @@
 }
 
 .brand {
-    
     font-size: 2rem;
     /* border: 2px solid aliceblue; */
     padding: 10px;
@@ -45,18 +44,21 @@
     /* padding: auto; */
 }
 
-
 .navLink {
-
+    width: 100px;
     margin-inline: 25px;
-  
     font-size: 1.2rem;
-   
+    /* border: 2px solid #161922; */
+    padding: 0.5rem;
+    background-color: #fff;
+    color: #161922;
+    text-align: center;
+    border-radius: 5px;
 }
 
 .navLink:hover {
     cursor: pointer;
     text-decoration: none;
-    border-bottom: 2px solid aliceblue;
-    color: #000;
+    background-color: #161922   ;
+    color: #fff;
 }

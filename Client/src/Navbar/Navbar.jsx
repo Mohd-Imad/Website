@@ -54,7 +54,7 @@ const Navbar = () => {
           {productDropdown ? <Dropdown dropdown={menuItems.product} scrolled={scrolled} /> : null}
         </li>
         <li className="navList" onMouseOver={displayDropdown.bind(this,"user")} onMouseLeave={hideDropdown}>
-          <Link to='/register' className="navLink">Register/Login</Link>
+          <Link to='/login' className="navLink">Login</Link>
           {userDropdown ? <Dropdown dropdown={menuItems.user} scrolled={scrolled} /> : null}
         </li>
       </ul>

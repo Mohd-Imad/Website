@@ -23,17 +23,17 @@ const Footer = () => {
         <div className="col-two">
           <div className="footerHeader">MENUS</div>
           <div className="footerBody">
-            <Link className='footerLink'>Home</Link>
-            <Link className='footerLink'>Services</Link>
-            <Link className='footerLink'>Products</Link>
-            <Link className='footerLink'>Career</Link>
+            <Link to='/' className='footerLink'>Home</Link>
+            <Link to='#' className='footerLink'>Services</Link>
+            <Link to='/products' className='footerLink'>Products</Link>
+            <Link to='#' className='footerLink'>Career</Link>
           </div>
         </div>
         <div className="col-three">
           <div className="footerHeader">LEARN MORE</div>
           <div className="footerBody">
-            <Link className='footerLink'>About</Link>
-            <Link className='footerLink'>Contact Us</Link>
+            <Link to='/about' className='footerLink'>About</Link>
+            <Link to='#' className='footerLink'>Contact Us</Link>
           </div>
         </div>
         <div className="col-four">
