@@ -91,7 +91,7 @@ const LoginForm = () => {
               <p className='err-msg'>{emailErr}</p>
               <input type="password" name='password' className='login-input' placeholder='Password' onChange={inputHandler} />
               <p className='err-msg'>{passwordErr}</p>
-              <input type="submit" className="login-btn" value='Login' disabled />
+              <input type="submit" className="login-btn" value='Login' />
               <p className="account-msg">Don't have an account? <Link to='/register'>Register</Link></p>
             </form>
           </div>
