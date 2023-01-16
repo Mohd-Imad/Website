@@ -45,7 +45,7 @@ const Navbar = () => {
   return <>
     <nav className={scrolled ? "navBar scrolled" : "navBar"}>
   
-      <Link to='/' className='brand'><img src={MI} height='80px' alt="MI-Mart" /></Link>
+      <Link to='/' className='brand'><img src='' height='80px' alt="MI-Mart" /></Link>
       <ul className="navbar-ul">
         <li className="navList"><Link to='/' className="navLink">Home</Link></li>
         <li className="navList"><Link to='/about' className="navLink">About Us</Link></li>

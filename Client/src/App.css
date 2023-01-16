@@ -19,3 +19,7 @@ body{
 .mt-mi{
     margin-top: 20vh;
 }
+
+.products-page{
+    height: fit-content;
+}
