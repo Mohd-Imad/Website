@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './Navbar.css'
 import Dropdown from './Dropdown/Dropdown'
 import menuItems from './Dropdown/menuItems'
-import MI from '../assets/mi-test.jpg'
+import MIMart from '../assets/MImartImage/MIMart.png'
 
 const Navbar = () => {
 
@@ -45,12 +45,12 @@ const Navbar = () => {
   return <>
     <nav className={scrolled ? "navBar scrolled" : "navBar"}>
   
-      <Link to='/' className='brand'><img src='' height='80px' alt="MI-Mart" /></Link>
+      <Link to='/' className='brand'><img src={MIMart} height='80px' alt="MI-Mart" className='mi-home-logo'/></Link>
       <ul className="navbar-ul">
         <li className="navList"><Link to='/' className="navLink">Home</Link></li>
         <li className="navList"><Link to='/about' className="navLink">About Us</Link></li>
         <li className="navList" onMouseOver={displayDropdown.bind(this,"product")} onMouseLeave={hideDropdown}>
-          <Link to='/products' className="navLink">Products </Link>
+          <Link to='/products' className="navLink">Products</Link>
           {productDropdown ? <Dropdown dropdown={menuItems.product} scrolled={scrolled} /> : null}
         </li>
         <li className="navList" onMouseOver={displayDropdown.bind(this,"user")} onMouseLeave={hideDropdown}>

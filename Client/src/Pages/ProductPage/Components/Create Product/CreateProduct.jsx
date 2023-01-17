@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 import { Navigate } from 'react-router-dom'
+import './CreateProduct.css'
 
 const CreateProduct = () => {
 
@@ -12,7 +13,77 @@ const CreateProduct = () => {
     info: ""
   })
 
-  let [submitted, setSubmitted] = useState(false)
+  const [nameErr, setNameErr] = useState(null)
+  const [priceErr, setPriceErr] = useState(null)
+  const [qtyErr, setQtyErr] = useState(null)
+  const [valid, setValid] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+
+  useEffect(() => {
+    if (valid === true) {
+      validateForm()
+    }
+  }, [product])
+
+  const validateForm = () => {
+    let name = product.name
+    let price = product.price
+    let qty = product.qty
+
+    //Name validation
+    if (name === "") {
+      setNameErr("Please enter Product Name")
+    }
+    else if (name.length < 4 || name.length > 15) {
+      setNameErr("Product Name must be of min 4 and max 10 characters")
+    }
+    else {
+      setNameErr("")
+    }
+
+    //Price validation
+    if (price === "") {
+      setPriceErr("Please enter Product Price")
+    }
+    else if (price > 1000) {
+      setPriceErr("Product price is too costly")
+    }
+    else {
+      setPriceErr("")
+    }
+
+    //QTY validation
+    if (qty === "") {
+      setQtyErr("Please enter quantity of product")
+    }
+    else if (qty > 1000 || qty <= 0) {
+      setQtyErr("Enter quantity from 1 to 1000")
+    }
+    else {
+      setQtyErr("")
+    }
+
+    //for submitting purpose when every fields are true
+    if (nameErr === "" && priceErr === "" && qtyErr === "") {
+      return true
+    }
+  }
+
+  const createHandler = (event) => {
+    event.preventDefault()
+    setValid(true)
+    let submit = validateForm()
+    // console.log(submit)
+    if (submit === true) {
+      alert("Form submitted successfully")
+      let url = 'https://filthy-ox-girdle.cyclic.app/products/create'
+      Axios.post(url, product).then((resp) => {
+        setSubmitted(true)
+      }).catch((err) => { console.log(err) })
+      console.log(product)
+    }
+  }
+
 
   let productData = (event) => {
     setProduct({
@@ -36,52 +107,29 @@ const CreateProduct = () => {
     })
   }
 
-  let createHandler = (event) => {
-    event.preventDefault()
-    let url = "https://filthy-ox-girdle.cyclic.app/products/create"
-    Axios.post(url, product).then((resp) => {
-      setSubmitted(true)
-      console.log(resp)
-    }).catch(() => { })
-  }
   return (
     <>
-      <div className="container mt-mi">
-        {/* <pre className='text-white'>{JSON.stringify(product)}</pre> */}
+      <div className="create-container">
         {
           submitted ? <><Navigate to='/listproduct' /></> : <>
-            <div className="row">
-              <div className="col-md-5">
-                <div id='card-create' className="card">
-                  <div id='head-create' className="card-header bg-info text-white">
-                    <h1>Create Product</h1>
-                  </div>
-                  <div id='body-create' className="card-body">
-                    <form onSubmit={createHandler}>
-                      <div className="form-group">
-                        <input type="text" name="name" placeholder='Product Name' className='form-control' onChange={productData} />
-                      </div>
-                      <div className="form-group">
-                        <input type="file" name="image" placeholder='Image' className='form-control' onChange={changeImageToStr} />
-                      </div>
-                      <div className="form-group">
-                        <input type="number" name="price" placeholder='Price' className='form-control' onChange={productData} />
-                      </div>
-                      <div className="form-group">
-                        <input type="number" name="qty" placeholder='QTY' className='form-control' onChange={productData} />
-                      </div>
-                      <div className="form-group">
-                        <textarea name="info" cols="52" rows="3" placeholder='Description' className='form-control' onChange={productData}></textarea>
-                      </div>
-                      <button className='btn btn-info'>Create Product</button>
-                    </form>
-                  </div>
-                </div>
+            <div className="create-card">
+              <div className="create-card-header">
+                <h1 className="ceate-heading">Product Details</h1>
               </div>
+              <form onSubmit={createHandler} className="create-card-body">
+                <input type="text" name='name' className='create-input' placeholder='Product Name' onChange={productData} />
+                <p className='err-msg'>{nameErr}</p>
+                <input type="file" name='image' className='create-input' placeholder='Image' onChange={productData} />
+                <input type="number" name='price' className='create-input' placeholder='Price' onChange={productData} />
+                <p className='err-msg'>{priceErr}</p>
+                <input type="number" name='qty' className='create-input' placeholder='QTY' onChange={productData} />
+                <p className='err-msg'>{qtyErr}</p>
+                {/* <textarea name="info" className='create-input' cols="40" rows="5"></textarea>  */}
+                <input type="submit" className="create-btn" value='Create Product' />
+              </form>
             </div>
           </>
         }
-
       </div>
     </>
   )

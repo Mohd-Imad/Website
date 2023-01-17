@@ -29,7 +29,7 @@ const ProductList = () => {
               {
                 products.map((product) => {
                   return <div className="col-md-3">
-                    <div className="card mt-5">
+                    <div className="card mt-5" style={{marginBottom:'40px'}}>
                       <div className="card-header bg-primary">
                         <center>
                           <img src={product.image} height='150px' alt="No pic" /></center>

@@ -11,10 +11,14 @@
     align-items: center;
     justify-content: center;
     color: aliceblue;
-
 }
+
 .mart-name{
     margin: 0;
     font-size: 7rem;
     font-family: 'Montserrat',sans-serif;
+}
+
+.mi-home-logo{
+    filter:brightness(150%)
 }
