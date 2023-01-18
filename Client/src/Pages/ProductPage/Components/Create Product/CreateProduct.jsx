@@ -114,7 +114,7 @@ const CreateProduct = () => {
           submitted ? <><Navigate to='/listproduct' /></> : <>
             <div className="create-card">
               <div className="create-card-header">
-                <h1 className="ceate-heading">Product Details</h1>
+                <h1 className="create-heading">Product Details</h1>
               </div>
               <div className="create-card-body">
                 <form onSubmit={createHandler}>

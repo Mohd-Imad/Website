@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 import { Navigate, useParams } from 'react-router-dom'
+import './ProductUpdate.css'
 
 const ProductUpdate = () => {
 
@@ -11,19 +12,24 @@ const ProductUpdate = () => {
     qty: "",
     info: ""
   })
-
+  const [nameErr, setNameErr] = useState(null)
+  const [priceErr, setPriceErr] = useState(null)
+  const [qtyErr, setQtyErr] = useState(null)
+  const [valid, setValid] = useState(false)
   let [submitted, setSubmitted] = useState(false)
 
   let selectedId = useParams().id
 
-  useEffect(()=>{
+  useEffect(() => {
     Axios.get(`https://filthy-ox-girdle.cyclic.app/products/${selectedId}`)
-    .then((response)=>{
-      setSelectedProduct(response.data)
-    })
-    .catch(()=>{})
-  },[selectedId])
-
+      .then((response) => {
+        setSelectedProduct(response.data)
+      })
+      .catch(() => { })
+      if (valid === true) {
+        validateForm()
+      }
+  }, [selectedId])
 
   let changeInput = (event) => {
     setSelectedProduct({
@@ -32,7 +38,52 @@ const ProductUpdate = () => {
     console.log(event.target.value)
   }
 
-  let changeImage =  (event) => {
+  const validateForm = () => {
+    let name = selectedProduct.name
+    let price = selectedProduct.price
+    let qty = selectedProduct.qty
+
+    //Name validation
+    if (name === "") {
+      setNameErr("Please enter Product Name")
+    }
+    else if (name.length < 4 || name.length > 15) {
+      setNameErr("Product Name must be of min 4 and max 10 characters")
+    }
+    else {
+      setNameErr("")
+    }
+
+    //Price validation
+    if (price === "") {
+      setPriceErr("Please enter Product Price")
+    }
+    else if (price > 1000) {
+      setPriceErr("Product price is too costly")
+    }
+    else {
+      setPriceErr("")
+    }
+
+    //QTY validation
+    if (qty === "") {
+      setQtyErr("Please enter quantity of product")
+    }
+    else if (qty > 1000 || qty <= 0) {
+      setQtyErr("Enter quantity from 1 to 1000")
+    }
+    else {
+      setQtyErr("")
+    }
+
+    //for submitting purpose when every fields are true
+    if (nameErr === "" && priceErr === "" && qtyErr === "") {
+      return true
+    }
+  }
+
+
+  let changeImage = (event) => {
     let imageFile = event.target.files[0];
     // console.log(event)
     let reader = new FileReader(imageFile)
@@ -47,19 +98,24 @@ const ProductUpdate = () => {
     })
   }
 
-  let updateHandler = (event) => {
+  const updateHandler = (event) => {
     event.preventDefault()
-    let url = `https://filthy-ox-girdle.cyclic.app/products/update/${selectedId}`
-    Axios.put(url, selectedProduct).then((resp) => {
-      setSubmitted(true)
-      console.log(resp)
-    }).catch(() => { })
+    setValid(true)
+    let submit = validateForm()
+    // console.log(submit)
+    if (submit === true) {
+      alert("Product updated successfully")
+      let url = `https://filthy-ox-girdle.cyclic.app/products/update/${selectedId}`
+      Axios.put(url, selectedProduct).then((resp) => {
+        setSubmitted(true)
+      }).catch((err) => { console.log(err) })
+      console.log(selectedProduct)
+    }
   }
 
   return (
     <>
-      <div className="container mt-mi">
-        {/* <pre className='text-white'>{JSON.stringify(selectedProduct)}</pre> */}
+      {/* <div className="container mt-mi">
         {
           submitted ? <><Navigate to='/listproduct' /></> : <>
             <div className="row">
@@ -95,6 +151,32 @@ const ProductUpdate = () => {
           </>
         }
 
+      </div> */}
+
+      <div className="update-container">
+        {
+          submitted ? <><Navigate to='/listproduct' /></> : <>
+            <div className="update-card">
+              <div className="update-card-header">
+                <h1 className="update-heading">Product Details</h1>
+              </div>
+              <div className="update-card-body">
+                <form onSubmit={updateHandler}>
+                  <input type="text" name='name' className='update-input' value={selectedProduct.name} placeholder='Product Name' onChange={changeInput} />
+                  <p className='err-msg'>{nameErr}</p>
+                  <input type="file" name='image' className='update-input' onChange={changeImage} />
+                  <img src={selectedProduct.image} height='100px' alt="Product image" />
+                  <input type="number" name='price' className='update-input' placeholder='Price' value={selectedProduct.price} onChange={changeInput} />
+                  <p className='err-msg'>{priceErr}</p>
+                  <input type="number" name='qty' className='update-input' value={selectedProduct.qty} placeholder='QTY' onChange={changeInput} />
+                  <p className='err-msg'>{qtyErr}</p>
+                  <textarea name="info" className='update-input' placeholder='Description' cols="40" rows="3"></textarea>
+                  <input type="submit" className="update-btn" value='Create Product' />
+                </form>
+              </div>
+            </div>
+          </>
+        }
       </div>
     </>
   )
