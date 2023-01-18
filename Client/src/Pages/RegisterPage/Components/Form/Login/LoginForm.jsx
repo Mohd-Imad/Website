@@ -81,21 +81,25 @@ const LoginForm = () => {
   return (
     <>
       <div className="login-container">
-        <div className="login-card">
-          <div className="login-header">
-            <h1 className="login-heading">Login Details</h1>
-          </div>
-          <div className="login-body">
-            <form onSubmit={submitHandler}>
-              <input type="text" name='email' className='login-input' placeholder='Email ID' onChange={inputHandler} />
-              <p className='err-msg'>{emailErr}</p>
-              <input type="password" name='password' className='login-input' placeholder='Password' onChange={inputHandler} />
-              <p className='err-msg'>{passwordErr}</p>
-              <input type="submit" className="login-btn" value='Login' />
-              <p className="account-msg">Don't have an account? <Link to='/register'>Register</Link></p>
-            </form>
-          </div>
-        </div>
+        {
+          submitted ? <><Navigate to='/listproduct' /></> : <>
+            <div className="login-card">
+              <div className="login-header">
+                <h1 className="login-heading">Login Details</h1>
+              </div>
+              <div className="login-body">
+                <form onSubmit={submitHandler}>
+                  <input type="text" name='email' className='login-input' placeholder='Email ID' onChange={inputHandler} />
+                  <p className='err-msg'>{emailErr}</p>
+                  <input type="password" name='password' className='login-input' placeholder='Password' onChange={inputHandler} />
+                  <p className='err-msg'>{passwordErr}</p>
+                  <input type="submit" className="login-btn" value='Login' />
+                  <p className="account-msg">Don't have an account? <Link to='/register'>Register</Link></p>
+                </form>
+              </div>
+            </div>
+          </>
+        }
       </div>
     </>
   )

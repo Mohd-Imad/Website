@@ -75,7 +75,7 @@ const CreateProduct = () => {
     let submit = validateForm()
     // console.log(submit)
     if (submit === true) {
-      alert("Form submitted successfully")
+      alert("Product created successfully")
       let url = 'https://filthy-ox-girdle.cyclic.app/products/create'
       Axios.post(url, product).then((resp) => {
         setSubmitted(true)
@@ -116,17 +116,19 @@ const CreateProduct = () => {
               <div className="create-card-header">
                 <h1 className="ceate-heading">Product Details</h1>
               </div>
-              <form onSubmit={createHandler} className="create-card-body">
-                <input type="text" name='name' className='create-input' placeholder='Product Name' onChange={productData} />
-                <p className='err-msg'>{nameErr}</p>
-                <input type="file" name='image' className='create-input' placeholder='Image' onChange={productData} />
-                <input type="number" name='price' className='create-input' placeholder='Price' onChange={productData} />
-                <p className='err-msg'>{priceErr}</p>
-                <input type="number" name='qty' className='create-input' placeholder='QTY' onChange={productData} />
-                <p className='err-msg'>{qtyErr}</p>
-                {/* <textarea name="info" className='create-input' cols="40" rows="5"></textarea>  */}
-                <input type="submit" className="create-btn" value='Create Product' />
-              </form>
+              <div className="create-card-body">
+                <form onSubmit={createHandler}>
+                  <input type="text" name='name' className='create-input' placeholder='Product Name' onChange={productData} />
+                  <p className='err-msg'>{nameErr}</p>
+                  <input type="file" name='image' className='create-input' onChange={changeImageToStr} />
+                  <input type="number" name='price' className='create-input' placeholder='Price' onChange={productData} />
+                  <p className='err-msg'>{priceErr}</p>
+                  <input type="number" name='qty' className='create-input' placeholder='QTY' onChange={productData} />
+                  <p className='err-msg'>{qtyErr}</p>
+                  <textarea name="info" className='create-input' placeholder='Description' cols="40" rows="3"></textarea> 
+                  <input type="submit" className="create-btn" value='Create Product' />
+                </form>
+              </div>
             </div>
           </>
         }

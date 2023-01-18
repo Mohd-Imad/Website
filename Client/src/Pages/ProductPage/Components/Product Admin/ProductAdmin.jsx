@@ -20,7 +20,7 @@ const ProductAdmin = () => {
   let getAllProducts = ()=>{
     Axios.get('https://filthy-ox-girdle.cyclic.app/products/all').then((res)=>{
       setProducts(res.data)
-    }).catch(()=>{
+    }).catch(()=>{  
       setLoading(<h1 className='text-danger'>***No Products***</h1>)
     })
   }

@@ -119,7 +119,7 @@ const RegForm = () => {
     let submit = validateForm()
     // console.log(submit)
     if (submit === true) {
-      alert("Form submitted successfully")
+      alert("User registered successfully")
       let url = 'https://filthy-ox-girdle.cyclic.app/users/create'
       Axios.post(url, formValues).then((resp) => {
         setSubmitted(true)
