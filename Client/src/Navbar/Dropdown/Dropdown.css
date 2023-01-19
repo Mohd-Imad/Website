@@ -2,13 +2,13 @@
     width: 150px;
     position: absolute;
     z-index: 4;
-    top: 107px;
+    top: 102px;
     list-style: none;
     text-align: center;
     border: 1px solid #fff;
 }
 .dropScrolled{
-    top:72px
+    top:68px
 }
 .dropdown-menu1 li {
     background-color: #161922;
