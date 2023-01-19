@@ -69,29 +69,14 @@ const CreateProduct = () => {
     }
   }
 
-  const createHandler = (event) => {
-    event.preventDefault()
-    setValid(true)
-    let submit = validateForm()
-    // console.log(submit)
-    if (submit === true) {
-      alert("Product created successfully")
-      let url = 'https://filthy-ox-girdle.cyclic.app/products/create'
-      Axios.post(url, product).then((resp) => {
-        setSubmitted(true)
-      }).catch((err) => { console.log(err) })
-      console.log(product)
-    }
-  }
-
-
+  
   let productData = (event) => {
     setProduct({
       ...product, [event.target.name]: event.target.value
     })
     console.log(event.target.value)
   }
-
+  
   let changeImageToStr = (event) => {
     let imageFile = event.target.files[0];
     // console.log(event)
@@ -106,7 +91,22 @@ const CreateProduct = () => {
       }
     })
   }
-
+  
+  const createHandler = (event) => {
+    event.preventDefault()
+    setValid(true)
+    let submit = validateForm()
+    // console.log(submit)
+    if (submit === true) {
+      alert("Product created successfully")
+      let url = 'https://filthy-ox-girdle.cyclic.app/products/create'
+      Axios.post(url, product).then((resp) => {
+        setSubmitted(true)
+      }).catch((err) => { console.log(err) })
+      console.log(product)
+    }
+  }
+  
   return (
     <>
       <div className="create-container">

@@ -29,6 +29,7 @@ const ProductAdmin = () => {
     Axios.delete(`https://filthy-ox-girdle.cyclic.app/products/delete/${id}`)
     .then((res)=>{
       // navigate(0)
+      alert('Product deleted successfully...!')
       getAllProducts()
     })
     .catch(()=>{})

@@ -171,7 +171,7 @@ const ProductUpdate = () => {
                   <input type="number" name='qty' className='update-input' value={selectedProduct.qty} placeholder='QTY' onChange={changeInput} />
                   <p className='err-msg'>{qtyErr}</p>
                   <textarea name="info" className='update-input' placeholder='Description' cols="40" rows="3"></textarea>
-                  <input type="submit" className="update-btn" value='Create Product' />
+                  <input type="submit" className="update-btn" value='Update Product' />
                 </form>
               </div>
             </div>
