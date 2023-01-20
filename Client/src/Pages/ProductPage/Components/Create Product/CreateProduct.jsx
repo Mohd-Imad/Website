@@ -45,9 +45,6 @@ const CreateProduct = () => {
     if (price === "") {
       setPriceErr("Please enter Product Price")
     }
-    else if (price > 1000) {
-      setPriceErr("Product price is too costly")
-    }
     else {
       setPriceErr("")
     }

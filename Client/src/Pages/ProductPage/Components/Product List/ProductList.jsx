@@ -20,7 +20,6 @@ const ProductList = () => {
 
   return (
     <>
-      {/* <h1 className="text-white text-center mt-mi">Products</h1> */}
       <div className="container mt-mi">
         {/* <pre className='text-white'>{JSON.stringify(products)}</pre> */}
         <div className="row">

@@ -16,6 +16,10 @@
     font-size: 5rem;
 }
 .about-text{
-    width: 40%;
-    font-size: 2rem;
+    padding: 2rem;
+    margin-top: 2rem;
+    background-color: rgba(0, 0, 0, 0.248);
+    width: 50%;
+    font-size: 1.5rem;
+    border-radius: 10px;
 }

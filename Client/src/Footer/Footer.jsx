@@ -13,18 +13,15 @@ const Footer = () => {
         <div className="col-one">
           <div className="footerHeader">ABOUT US</div>
           <div className="footerBody">
-            MI-Mart"•' is a global technology company specializing in disruptive
-            technologies - Artificial Intelligence (Al), Machine Learning. Robotic Process
-            Automation (RPA). BlockChain and Internet of Things (IOT). MI-Mart mission
-            to enable businesses to leverage the full potential of disruptive
-            technologies to stay competitive in the market.
+          Welcome to MI Mart! Our mission is to provide our customers with the freshest and highest quality products at affordable prices. 
+          Our team is dedicated to providing excellent customer service and we take pride in our friendly and knowledgeable staff. We are committed to supporting our local farmers and suppliers and strive to carry products from the best local and regional producers.
           </div>
         </div>
         <div className="col-two">
           <div className="footerHeader">MENUS</div>
           <div className="footerBody">
             <Link to='/' className='footerLink'>Home</Link>
-            <Link to='#' className='footerLink'>Services</Link>
+            {/* <Link to='#' className='footerLink'>Services</Link> */}
             <Link to='/products' className='footerLink'>Products</Link>
             <Link to='#' className='footerLink'>Career</Link>
           </div>
@@ -39,17 +36,17 @@ const Footer = () => {
         <div className="col-four">
           <div className="footerHeader">ADDRESS</div>
           <div className="footerBody">
-            <p>Novel Tech Park, 1st Floor, Hosur Rd,
+            <p>Novel Tech Park, Hosur Rd, 1st Main, 
               Kudlu gate, Bengaluru, Karnataka
-              560068
-              Phone: 0804-717-8999
+              560068 <br />
+              Phone: 0804-717-5555<br/>
               Email: hi@mimart.com
             </p>
             <div>
               <p>SOCIAL MEDIA</p>
               <div className="icons">
-              <Link to='/facebook'><FontAwesomeIcon icon={faFacebookF} className='fb-icon' /></Link>
-              <Link to='/linkedin'><FontAwesomeIcon icon={faLinkedinIn} className='li-icon' /></Link>
+              <Link to='#'><FontAwesomeIcon icon={faFacebookF} className='fb-icon' /></Link>
+              <Link to='#'><FontAwesomeIcon icon={faLinkedinIn} className='li-icon' /></Link>
               </div>
             </div>
           </div>

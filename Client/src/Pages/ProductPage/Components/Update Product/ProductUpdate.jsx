@@ -69,9 +69,6 @@ const ProductUpdate = () => {
     if (qty === "") {
       setQtyErr("Please enter quantity of product")
     }
-    else if (qty > 1000 || qty <= 0) {
-      setQtyErr("Enter quantity from 1 to 1000")
-    }
     else {
       setQtyErr("")
     }
