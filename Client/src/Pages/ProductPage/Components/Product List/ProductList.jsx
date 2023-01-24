@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import Axios from 'axios'
 import Spinner from 'react-bootstrap/Spinner'
+import './ProductList.css'
 
 const ProductList = () => {
   let [products, setProducts] = useState([])
@@ -20,30 +21,29 @@ const ProductList = () => {
 
   return (
     <>
-      <div className="container mt-mi">
-        {/* <pre className='text-white'>{JSON.stringify(products)}</pre> */}
-        <div className="row">
-          {
-            products.length > 0 ? <>
-              {
-                products.map((product) => {
-                  return <div className="col-md-3">
-                    <div className="card mt-5" style={{marginBottom:'40px'}}>
-                      <div className="card-header bg-dark">
-                        <center>
-                          <img src={product.image} height='150px' width='180px' alt="No pic" /></center>
-                      </div>
-                      <div className="card-body text-dark">
-                        <li className="list-group-item">Name : {product.name}</li>
-                        <li className="list-group-item">Price : {product.price}</li>
-                        <li className="list-group-item">QTY : {product.qty}</li>
-                      </div>
+
+
+
+      <div className="list-container">
+      <div className="product-card-wrapper">
+        {/* {
+          products.length > 0 ? <>
+            {
+              products.map((product) => {
+                return <div className="product-card" style={{ marginBottom: '40px' }}>
+                    <div className="product-card-header">
+                      <img src={product.image} height='150px' width='180px' alt="product pic" />
+                    </div>
+                    <div className="product-card-body">
+                      < h5 className='product-details' >Name : {product.name}</ h5 >
+                      < h5 className='product-details' >Price : {product.price}</ h5 >
+                      < h5 className='product-details'>QTY : {product.qty}</ h5 >
                     </div>
                   </div>
-                })
-              }
-            </> : <>{loading}</>
-          }
+              })
+            }
+          </> : <>{loading}</>
+        } */}
         </div>
       </div>
     </>
@@ -51,3 +51,7 @@ const ProductList = () => {
 }
 
 export default ProductList
+
+
+
+
