@@ -48,8 +48,8 @@ const ProductAdmin = () => {
                   {/* <th>ID</th> */}
                   <th>Product</th>
                   <th>Image</th>
-                  <th>Price</th>
-                  <th>QTY</th>
+                  <th>Price /Kg</th>
+                  <th>Stock</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -60,7 +60,7 @@ const ProductAdmin = () => {
                       products.map((product)=>{
                         return <tr key={product.id}>
                           <td>{product.name}</td>
-                          <td><img src={product.image} height='100px' alt="No Pic" /></td>
+                          <td><img src={product.image} height='100px' width='120px' alt="No Pic" /></td>
                           <td>{product.price}</td>
                           <td>{product.qty}</td>
                           <td>

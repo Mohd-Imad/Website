@@ -35,8 +35,8 @@ const ProductList = () => {
                       </div>
                       <div className="product-card-body">
                         <li className="product-details"><b> Name :</b> {product.name}</li>
-                        <li className="product-details"><b> Price :</b> {product.price}</li>
-                        <li className="product-details"><b> QTY :</b> {product.qty}</li>
+                        <li className="product-details"><b> Price :</b> &#8377; {product.price} /Kg</li>
+                        <li className="product-details"><b> Stock :</b> {product.qty} Kg</li>
                         {/* <li className="product-details"><b> Info :</b> {product.info}</li> */}
                       </div>
                     </div>
