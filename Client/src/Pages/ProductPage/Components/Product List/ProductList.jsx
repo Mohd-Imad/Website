@@ -21,29 +21,30 @@ const ProductList = () => {
 
   return (
     <>
-
-
-
-      <div className="list-container">
-      <div className="product-card-wrapper">
-        {/* {
-          products.length > 0 ? <>
-            {
-              products.map((product) => {
-                return <div className="product-card" style={{ marginBottom: '40px' }}>
-                    <div className="product-card-header">
-                      <img src={product.image} height='150px' width='180px' alt="product pic" />
-                    </div>
-                    <div className="product-card-body">
-                      < h5 className='product-details' >Name : {product.name}</ h5 >
-                      < h5 className='product-details' >Price : {product.price}</ h5 >
-                      < h5 className='product-details'>QTY : {product.qty}</ h5 >
+      <div className="container">
+        {/* <pre>{JSON.stringify(products)}</pre> */}
+        <div className="row">
+          {
+            products.length > 0 ? <>
+              {
+                products.map((product) => {
+                  return <div className="col-md-3">
+                    <div className="product-card">
+                      <div className="product-card-header">
+                      <img src={product.image} className="productImg" alt="" />
+                      </div>
+                      <div className="product-card-body">
+                        <li className="product-details"><b> Name :</b> {product.name}</li>
+                        <li className="product-details"><b> Price :</b> {product.price}</li>
+                        <li className="product-details"><b> QTY :</b> {product.qty}</li>
+                        {/* <li className="product-details"><b> Info :</b> {product.info}</li> */}
+                      </div>
                     </div>
                   </div>
-              })
-            }
-          </> : <>{loading}</>
-        } */}
+                })
+              }
+            </> : loading
+          }
         </div>
       </div>
     </>
