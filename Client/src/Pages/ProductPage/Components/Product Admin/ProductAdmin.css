@@ -1,0 +1,76 @@
+.admin-container {
+    min-height: 100vh;
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 150px auto 50px;
+}
+
+.admin-table{
+    overflow: hidden;
+    width: 100%;
+    /* border: 2px solid #fff; */
+    text-align: center;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    box-shadow: 1px 4px 10px #fff;
+}
+
+.table-thead{
+    border-bottom: 3px solid #212121;
+    background-color: #fff;
+    color: #212121;
+    font-size: 1.1rem;
+}
+
+.table-tbody{
+    margin: 20px 0;
+    background-color:rgb(195, 204, 211);
+}
+
+.tbody-tr{
+    border-bottom: 1px solid #b0b0b0;
+}
+
+th, td{
+    padding: 1rem;
+}
+
+.tbody-tr:hover{
+    background-color:rgb(180, 192, 201);
+
+}
+
+.button{
+    text-decoration: none;
+    padding: 0.5rem;
+    margin-inline: 3px;
+    /* border:1px solid #212121; */
+    border-radius:10px;
+}
+
+.edit{
+    background-color:rgb(81, 128, 165) ;
+    color: #212121;
+}
+
+.delete{
+    background-color: rgb(233, 40, 40);
+    color: #212121;
+}
+
+.edit:hover{
+    background-color:#212121 ;
+    color: #5180a5;
+}
+
+.delete:hover{
+    background-color: #212121;
+    color: #e92828;
+}
+
+.button:hover{
+    text-decoration: none;
+}
